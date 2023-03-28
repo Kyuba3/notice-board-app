@@ -1,22 +1,22 @@
 export const getUser = ({ user }) => user;
 
 const createActionName = (actionName) => `app/users/${actionName}`;
-const LOGIN = createActionName('LOGIN');
+const LOG_IN = createActionName('LOG_IN');
 const LOGOUT = createActionName('LOGOUT');
 
-export const login = payload => ({
-  type: LOGIN,
+export const logIn = payload => ({
+  type: LOG_IN,
   payload
 });
 
-export const logout = payload => ({
+export const logOut = payload => ({
   type: LOGOUT,
 });
 
 
 const usersReducer = (statePart = null, action) => {
   switch(action.type) {
-    case LOGIN: 
+    case LOG_IN: 
       return action.payload;
     case LOGOUT:
       return null;
