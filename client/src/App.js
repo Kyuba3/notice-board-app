@@ -10,6 +10,8 @@ import Register from './components/pages/Register/Register';
 import SearchResult from './components/pages/SearchResult/SearchResult';
 import NotFound from './components/pages/NotFound/NotFound';
 import EditAd from './components/pages/EditAd/EditAd';
+import Logout from './components/pages/Logout/Logout';
+import RemoveAd from './components/pages/RemoveAd/RemoveAd';
 
 const App = () => {
   return (
@@ -17,12 +19,14 @@ const App = () => {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/singleAd/:id' element={<SingleAd />} />
+        <Route path='/ad/:id' element={<SingleAd />} />
         <Route path='/ad/edit/:id' element={<EditAd />} />
-        <Route path='/add/ad' element={<AddAd />} />
-        <Route path='/search/:searching' element={<SearchResult />} />
+        <Route path='/ad/add' element={<AddAd />} />
+        <Route path='/ad/remove/:id' element={<RemoveAd />} />
+        <Route path='/search/:searchPhrase' element={<SearchResult />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/logout' element={<Logout />} />
         <Route path='*' element={<NotFound />} /> 
       </Routes>
       <Footer />
