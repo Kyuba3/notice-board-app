@@ -3,6 +3,7 @@ import { logOut } from "../../../redux/usersRedux";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Alert } from "react-bootstrap";
 
 const Logout = () => {
 
@@ -17,11 +18,18 @@ const Logout = () => {
     fetch(`${API_URL}/logout`, options)
       .then(() => {
         dispatch(logOut());
-        navigate('/');
+        setTimeout(() => {
+          navigate('/');
+        }, 2000);
       });
   }, [dispatch]);
 
-  return null;
+  return (
+  <Alert variant="success" className="d-block mx-auto">
+    <Alert.Heading>Success! </Alert.Heading>
+    <p>You have been logged out</p>
+  </Alert>
+  )
 };
 
 export default Logout;

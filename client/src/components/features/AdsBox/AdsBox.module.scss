@@ -1,0 +1,16 @@
+@import '../../../styles/global.scss';
+
+.card_wrapper {
+  background-color: rgb(202, 202, 202);
+  border-style: 1px solid black;
+  height: 100%;
+}
+
+.body {
+  height: 8rem;
+}
+
+.card_photo {
+  height: 20rem;
+  object-fit: cover;
+}
