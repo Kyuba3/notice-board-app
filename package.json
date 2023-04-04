@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "run-p start:*",
+    "start": "npm-run-all start:*",
     "start:client": "cd client && npm run build",
     "start:api": "nodemon server.js"
   },
