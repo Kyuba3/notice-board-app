@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "run-p start:*",
+    "start:client": "cd client && npm run build",
+    "start:api": "nodemon server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
