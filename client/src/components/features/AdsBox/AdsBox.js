@@ -22,10 +22,10 @@ const AdsBox = ({ title, price, localization, image, _id, user }) => {
         <div className={styles.body}>
           <Card.Title>Price: {price}$</Card.Title>
           <Card.Subtitle className='my-3'>
-            <b>{title}</b>
+            <b>Title: {title}</b>
           </Card.Subtitle>
           <Card.Text className='mb-3'>
-            <b>Location: {localization}</b>
+            <b>Localization: {localization}</b>
           </Card.Text>
         </div>
         <Row>

@@ -32,7 +32,7 @@ const adsReducer = (statePart = [], action) => {
       return [...action.payload];
     case EDIT_AD:
       return statePart.map((ad) =>
-        ad.id === action.payload.id ? { ...ad, ...action.payload } : ad
+        ad._id === action.payload.id ? { ...ad, ...action.payload } : ad
       );
     case SEARCH_ADS:
       return statePart.filter((ad) => ad.title.includes(action.payload));

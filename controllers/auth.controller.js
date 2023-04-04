@@ -7,6 +7,7 @@ exports.register = async (req, res) => {
     
     const { login, password } = req.body;
     const fileType = req.file ? await getImageFileType(req.file) : 'unknow';
+
     
     if (login && typeof login === 'string' && password && typeof password === 'string' && req.file && ['image/png', 'image/jpeg', 'image/gif'].includes(fileType)) {
       const userWithLogin = await User.findOne({ login });
@@ -69,6 +70,16 @@ exports.logoutUser = async (req, res) => {
   try {
     req.session.destroy();
     res.send('You have been logout successfully!');
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+exports.getUserByLogin = async (req, res) => {
+  try {
+    const user = await User.findOne({ login: req.params.login });
+    if(!user) return res.status(404).json({ message: 'User not found' });
+    else res.json(user);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

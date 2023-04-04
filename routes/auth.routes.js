@@ -9,5 +9,6 @@ router.post('/register', imageUpload.single('avatar'), auth.register);
 router.post('/login', auth.login);
 router.get('/user', authMiddleware, auth.getUser);
 router.delete('/logout', authMiddleware, auth.logoutUser);
+router.get('/user/:login', auth.getUserByLogin);
 
 module.exports = router;
