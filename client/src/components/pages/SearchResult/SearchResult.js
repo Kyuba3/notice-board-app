@@ -8,13 +8,13 @@ import { Spinner } from 'react-bootstrap'
 import { useParams } from 'react-router-dom';
 import AdsBox from '../../features/AdsBox/AdsBox';
 
-const Search = () => {
-  const { searchId } = useParams();
+const SearchResult = () => {
+  const { searchPhrase } = useParams();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const fetchData = async () => {
-    await fetch(`${API_URL}/api/ads/search/${searchId}`)
+    await fetch(`${API_URL}/api/ads/search/${searchPhrase}`)
       .then((response) => response.json())
       .then((res) => {
         setData(res);
@@ -25,7 +25,7 @@ const Search = () => {
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line
-  }, [searchId]);
+  }, [searchPhrase]);
 
   return (
     <>
@@ -46,4 +46,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchResult;
