@@ -20,6 +20,7 @@ const AdPage = () => {
   const id = adId.id;
   const adData = useSelector(state => getAdById(state, id));
   const user = useSelector(getUser);
+  console.log(adData);
 
 
   const [showModal, setShowModal] = useState(false);

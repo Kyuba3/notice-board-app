@@ -2,12 +2,8 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Col, Form, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
-
 
 const AdForm = ({ action, actionText, ...props }) => {
-
-  const navigate = useNavigate();
 
   const id = props.id;
   const [title, setTitle] = useState(props.title || '');
@@ -90,7 +86,7 @@ const AdForm = ({ action, actionText, ...props }) => {
               <Form.Label>Phone number</Form.Label>
               <Form.Control
                 {...register('phoneNumber', { required: true })}
-                type='tel'
+                type='number'
                 value={phoneNumber}
                 onChange={e => setPhoneNumber(e.target.value)}
               />
